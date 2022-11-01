@@ -1,0 +1,40 @@
+{
+  "project_info": {
+    "project_number": "918953152816",
+    "firebase_url": "https://polinagamblingtestbetano-4f4e8-default-rtdb.firebaseio.com",
+    "project_id": "polinagamblingtestbetano-4f4e8",
+    "storage_bucket": "polinagamblingtestbetano-4f4e8.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:918953152816:android:e1f64e57b95fc10e0238f5",
+        "android_client_info": {
+          "package_name": "com.betanoesportiva.betanosportwetten"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "918953152816-i3cccj4gelq59nb2q1aa6isunclb3v71.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyBRpySnlctY1aNwkav0BBuw-DldtXX_6_A"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": [
+            {
+              "client_id": "918953152816-i3cccj4gelq59nb2q1aa6isunclb3v71.apps.googleusercontent.com",
+              "client_type": 3
+            }
+          ]
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}
