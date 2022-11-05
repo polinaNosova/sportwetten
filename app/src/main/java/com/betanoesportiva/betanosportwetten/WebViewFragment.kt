@@ -1,6 +1,7 @@
 package com.betanoesportiva.betanosportwetten
 
 import android.annotation.SuppressLint
+import android.os.Build
 import android.os.Bundle
 import android.util.Log
 import androidx.fragment.app.Fragment
@@ -10,6 +11,8 @@ import android.view.ViewGroup
 import android.webkit.WebResourceRequest
 import android.webkit.WebView
 import android.webkit.WebViewClient
+import androidx.annotation.RequiresApi
+import androidx.fragment.app.FragmentManager
 import com.betanoesportiva.betanosportwetten.databinding.FragmentWebViewBinding
 import com.google.firebase.database.DataSnapshot
 import com.google.firebase.database.DatabaseError
@@ -45,14 +48,23 @@ class WebViewFragment : Fragment() {
     }
 
     inner class MyWebViewClient : WebViewClient() {
+        @RequiresApi(Build.VERSION_CODES.N)
         override fun shouldOverrideUrlLoading(
             view: WebView?,
             request: WebResourceRequest?,
         ): Boolean {
-            if (request != null) {
-                view?.loadUrl(request.url.toString())
-            }
+            checkUrl(view,request)
             return super.shouldOverrideUrlLoading(view, request)
+        }
+    }
+    @RequiresApi(Build.VERSION_CODES.N)
+    fun checkUrl(view: WebView?, request: WebResourceRequest?) {
+        if (request?.isRedirect == true && request.url.path!!.isNotEmpty()) {
+            view?.loadUrl(request.url.toString())
+        } else {
+            val fragment: FragmentManager = requireActivity().supportFragmentManager
+            val transaction = fragment.beginTransaction()
+            transaction.replace(R.id.container,BlankFragment())
         }
     }
 
